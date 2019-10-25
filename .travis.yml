@@ -1,0 +1,25 @@
+language: bash
+
+env:
+    - HUGO_VERSION: "0.59.0"
+
+branches:
+    only:
+        - raw
+
+install:
+    - curl -fsSL https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz | tar xvz
+
+script:
+    - ./hugo
+
+deploy:
+    provider: pages
+    skip-cleanup: true
+    local-dir: public
+    target-branch: master
+    github-token: $GITHUB_TOKEN
+    #fqdn: custom.example.com
+    keep-history: true
+    on:
+      branch: raw
