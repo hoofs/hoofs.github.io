@@ -19,7 +19,7 @@ deploy:
     local-dir: public
     target-branch: master
     github-token: $GITHUB_TOKEN
-    #fqdn: custom.example.com
+    fqdn: itspointless.site
     keep-history: true
     on:
       branch: raw
